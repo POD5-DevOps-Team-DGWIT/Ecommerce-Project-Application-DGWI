@@ -115,3 +115,5 @@ tab, set the server to `https://shop.digitalwitch.online`.
 
 Based on the [OpenTelemetry Demo](https://github.com/open-telemetry/opentelemetry-demo),
 licensed under the Apache License 2.0 (see [LICENSE](LICENSE)).
+
+My name is Ose-Jossy am working on the application now
