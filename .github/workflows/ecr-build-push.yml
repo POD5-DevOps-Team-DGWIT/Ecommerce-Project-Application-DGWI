@@ -35,6 +35,9 @@ jobs:
       IMAGE: ecomerce/${{ matrix.service }} # ECR repository name
       # Every Dockerfile is at src/<service>/Dockerfile, except cart's
       DOCKERFILE: ${{ matrix.service == 'cart' && 'src/cart/src/Dockerfile' || format('src/{0}/Dockerfile', matrix.service) }}
+      OTEL_JAVA_AGENT_VERSION: ""
+      OPENTELEMETRY_CPP_VERSION: ""
+      OPAMP_GO_REF: ""
     steps:
       - uses: actions/checkout@v7
 
@@ -109,7 +112,7 @@ jobs:
   #   steps:
   #     - uses: actions/checkout@v7
   #       with:
-  #         repository: digitalwitchdemo/k8s-file
+  #         repository: POD5-DevOps-Team-DGWIT/Ecommerce-Project-K8s-file-DGWI
   #         token: ${{ secrets.K8S_REPO_TOKEN }}
 
   #     - name: Set the new image tag and push
