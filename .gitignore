@@ -40,7 +40,7 @@ composer.lock
 .ghcr.env
 *.apk
 /.lycheecache
-*Debug.logs*
+
 
 
 # Ignore copied/generated protobuf files
