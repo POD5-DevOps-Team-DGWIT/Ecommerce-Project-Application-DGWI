@@ -21,7 +21,7 @@
 .cursorrules
 
 # Build artifacts
-bin/
+!bin/
 obj/
 .gradle/
 .nb-gradle
@@ -33,7 +33,7 @@ coverage
 out/
 build
 next-env.d.ts
-vendor/
+!vendor/
 composer.lock
 .venv
 .dockerhub.env
@@ -49,6 +49,7 @@ composer.lock
 /src/fraud-detection/src/main/proto
 /src/payment/demo.proto
 /src/shipping/proto/
+!/src/currency/proto
 /src/frontend/pb
 
 # Otel Demo specific
