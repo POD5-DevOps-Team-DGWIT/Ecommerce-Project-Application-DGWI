@@ -1,4 +1,4 @@
-# Astronomy Shop: E-commerce Microservices on AWS EKS
+## Astronomy Shop: E-commerce Microservices on AWS EKS
 
 An online telescope shop made of **24 microservices** in 10+ languages. This
 repo holds the **application code**. Every push builds Docker images, pushes
@@ -9,6 +9,19 @@ repo, which **Argo CD** deploys to the EKS cluster automatically.
  you push code ──► GitHub Actions ──► Amazon ECR ──► k8s-file repo ──► Argo CD ──► EKS
  (this repo)       builds 24 images   stores images   new image tag    syncs        running shop
 ```
+
+## Application repo
+
+**Step 1.** Make a second AWS IAM Role “badge” (role) just for this repo.
+
+You already have one role for Terraform. This repo needs its own, so it can only store images and can’t change your infrastructure. If it ever leaks, the damage is small.
+
+1b. Add permissions: attach ecr-public:GetAuthorizationToken
+
+**Step 2.** Tell GitHub about the role. In the app repo: Settings → Secrets and variables → Actions:
+
+Secret AWS_ROLE_ARN = the ARN from Step 1
+Variable AWS_REGION = your region (the same one as everything else)
 
 ## 1. What's in this repo
 
@@ -37,7 +50,9 @@ repo, which **Argo CD** deploys to the EKS cluster automatically.
 Databases (PostgreSQL, Valkey) and monitoring (Jaeger, Prometheus, Grafana)
 use public images, so they're only configured in `k8s-file`.
 
-## 3. How the pipeline works
+## 3. What to change to make the pipeline works
+
+<img width="4708" height="1142" alt="image" src="https://github.com/user-attachments/assets/93381af3-6c1f-4c23-ae94-26c7fc6e4e32" />
 
 The workflow runs on every push to `main` that changes `src/`, `pb/` or `.env`.
 
@@ -57,7 +72,7 @@ In this repo: **Settings → Secrets and variables → Actions**
 |---|---|---|
 | Secret | `AWS_ROLE_ARN` | IAM role GitHub assumes through OIDC (needs ECR push + `ecr-public:GetAuthorizationToken`) |
 | Secret | `K8S_REPO_TOKEN` | GitHub fine-grained token, **Contents: Read and write** on `k8s-file` only |
-| Variable | `AWS_REGION` | Region of your ECR and EKS cluster, e.g. `us-west-1` |
+| Variable | `AWS_REGION` | Region of your ECR and EKS cluster, e.g. `eu-west-2` |
 
 > The images' region must match the region in `k8s-file/kustomization.yaml`,
 > otherwise pods fail with `ImagePullBackOff`.
@@ -73,7 +88,7 @@ cd ecommerce-final-project
 # 3. Commit and push
 git add .
 git commit -m "Change the home page title"
-git push
+git push origin main
 ```
 
 Then follow it:
@@ -84,7 +99,8 @@ Then follow it:
 | Images in ECR | AWS Console → **ECR** → `ecomerce/<service>`; the newest tag = the run number (`#N`) |
 | Tag updated | `k8s-file` repo → new commit **"Deploy images from build #N"** |
 | Deployed | Argo CD UI → app **astronomy-shop** = `Synced` / `Healthy` |
-| Live | https://shop.digitalwitch.online |
+| Live | https://shop.pod5ecomm.store |
+
 
 **Rebuild without a code change:** Actions → *Build and Push Images to ECR* → **Run workflow**.
 
@@ -105,11 +121,55 @@ Build the Android `.apk` with Docker:
 
 ```bash
 cd src/react-native-app
+
 docker build -f android.Dockerfile --platform=linux/amd64 --output=. .
 ```
 
-Install `reactnativeapp.apk` on a phone or emulator. In the app's **Settings**
-tab, set the server to `https://shop.digitalwitch.online`.
+## Troubleshooting
+These images needed troubleshooting before we could get running.
+
+<img width="399.25" height="224.75" alt="image" src="https://github.com/user-attachments/assets/9dff0242-415b-4e38-9e92-621dc14ce16c" />
+
+Out of the 24 images:
+
+1. currency	src/currency/proto/	line 50: /src/currency/proto
+2. flagd-ui	src/flagd-ui/rel/ (it holds a bin folder)	line 24: bin/
+3. flagd-ui	src/flagd-ui/assets/vendor/	line 36: vendor/
+
+WE RAN THIS ON OUR VSCODE
+
+```
+ls src/currency/proto/grpc/health/v1
+ls src/flagd-ui/rel/overlays/bin
+ls src/flagd-ui/assets/vendor
+
+git add -f src/currency/proto src/flagd-ui/rel src/flagd-ui/assets/vendor
+
+git status --short
+
+git commit -m "Add folders needed by currency and flagd-ui builds"
+
+git push origin main
+
+```
+
+So it doesn’t happen again
+We added these exceptions in .gitignore, below the lines they override:
+
+!/src/currency/proto/
+
+!/src/flagd-ui/rel/overlays/bin/
+
+!/src/flagd-ui/assets/vendor/
+
+Make sure each ! line comes after the matching ignore line (24, 36 and 50), because Git reads the file top to bottom and the last matching rule wins. It’s optional, since Step 2 already fixes the current problem.
+
+
+### After The Troubleshooting 
+**The remaining 2 images Currency & Flagd-ui finally built**
+
+<img width="399.25" height="224.75" alt="image" src="https://github.com/user-attachments/assets/0615729e-50b7-4fd3-941c-a973b8f09152" />
+
 
 ## License
 
