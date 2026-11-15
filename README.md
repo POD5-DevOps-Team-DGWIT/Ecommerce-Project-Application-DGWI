@@ -1,9 +1,6 @@
 ## Astronomy Shop: E-commerce Microservices on AWS EKS
 
-An online telescope shop made of **24 microservices** in 10+ languages. This
-repo holds the **application code**. Every push builds Docker images, pushes
-them to **Amazon ECR**, and updates the **[k8s-file](https://github.com/digitalwitchdemo/k8s-file)**
-repo, which **Argo CD** deploys to the EKS cluster automatically.
+An online telescope shop made of **24 microservices** in 10+ languages. This repo holds the **application code**. Every push builds Docker images, pushes them to **Amazon ECR**, and updates the **[k8s-file](https://github.com/digitalwitchdemo/k8s-file)** repo, which **Argo CD** deploys to the EKS cluster automatically.
 
 ```
  you push code ──► GitHub Actions ──► Amazon ECR ──► k8s-file repo ──► Argo CD ──► EKS
@@ -82,12 +79,17 @@ In this repo: **Settings → Secrets and variables → Actions**
 ```bash
 # 1. Get the code
 git clone https://github.com/digitalwitchdemo/ecommerce-final-project.git
+
 cd ecommerce-final-project
 
 # 2. Change something, e.g. a page in src/frontend/
+
 # 3. Commit and push
+
 git add .
+
 git commit -m "Change the home page title"
+
 git push origin main
 ```
 
