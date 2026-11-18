@@ -13,7 +13,7 @@ export const siteConfig = {
   podName: 'Pod 5', // e.g. 'Pod 5'  -> badge above the hero title + footer credit
   projectDescription: 'We customized this shop as 24 microservices on AWS EKS.', // 1-2 sentences about what Pod 5 built
     members: [
-    { name: 'Linus Okolo', role: 'DevOps Engineer - IaC & Dev Team', link: 'https://github.com/LinusNnamdi/bona' },
+    { name: 'Linus Okolo', role: 'DevOps Engineer - IaC & Dev Team', link: 'https://github.com/LinusNnam' },
     { name: 'Pod 5 member Name', role: 'DevOps Engineer' },
   ],
 };

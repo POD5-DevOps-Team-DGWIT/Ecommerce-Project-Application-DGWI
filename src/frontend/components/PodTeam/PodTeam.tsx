@@ -24,7 +24,7 @@ const PodTeam = () => {
   return (
     <S.PodTeam>
       <S.Inner>
-        <S.Title>Meet {podName || 'the team'}</S.Title>
+        <S.Title>Meet {podName || 'the team'} Dev Members</S.Title>
         {!!projectDescription && <S.Description>{projectDescription}</S.Description>}
         {members.length > 0 && (
           <S.MemberList>
