@@ -107,7 +107,17 @@ Open http://localhost:3000.
 - Not yet verified: a full `next build`, the cart dropdown, the cart page, checkout and 404/500 pages.
 - After applying the changes, run `npx tsc --noEmit` once.
 
-## Not done yet
-- Cart page, checkout form, order-complete page, 404 and 500 pages. These will look slightly lighter in font weight until they are restyled, because the global `body *` rule was removed.
-- Remaining Pod5 details (team members and roles, project description).
-- Product names and descriptions come from the `product-catalog` service, not the frontend.
+## Round 2 (cart, checkout, error pages, Pod team)
+- Cart: two-column layout on wide screens (items left, sticky checkout card right); phone rows rebuilt so nothing scrolls sideways; styled empty-cart card.
+- Inputs/selects: consistent borders, blue focus ring, aligned dropdown arrow.
+- Checkout form: card styling, full-width buttons, month/year/CVV layout works on phones.
+- Bug fix: Month dropdown listed option 12 as "January"; now "December".
+- Order-complete page: tick icon, card styling, left-aligned address.
+- 404/500: full-height centred layout, big error code, brand button.
+- Header: smaller logo and currency picker on phones (< 420px) so the top bar fits 360px screens.
+- New `components/PodTeam/` section ("Meet Pod 5"), driven by `components/Layout/siteConfig.ts`; hidden until filled in.
+
+## Still open
+- Fill in `siteConfig.ts` (podName, projectDescription, members).
+- Product names/descriptions: the product data is not in this repo's `product-catalog` folder (no `products` directory), so I couldn't find where it comes from. Check the `k8s-file` repo, and tell me where it is if you want it changed.
+- Full `next build` verification and a visual check on the live site after deploy.

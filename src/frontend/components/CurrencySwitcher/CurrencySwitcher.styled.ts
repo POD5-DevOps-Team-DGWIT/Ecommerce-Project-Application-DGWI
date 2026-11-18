@@ -43,9 +43,9 @@ export const Select = styled.select`
   appearance: none;
   cursor: pointer;
   flex-shrink: 0;
-  width: 112px;
+  width: 104px;
   height: 44px;
-  padding: 0 30px 0 42px;
+  padding: 0 26px 0 38px;
   background: ${({ theme }) => theme.colors.white};
   font-size: 15px;
   font-weight: ${({ theme }) => theme.fonts.semiBold};

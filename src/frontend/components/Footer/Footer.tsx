@@ -31,7 +31,7 @@ const Footer = () => {
         © {currentYear} DigitalWitch Support Community · Built on the{' '}
         <a href="https://github.com/open-telemetry/opentelemetry-demo">OpenTelemetry Demo</a>
       </p>
-      {!!siteConfig.podName && <p>Built by {siteConfig.podName} - Engr. Nnamdi and Other Dev Team.</p>}
+      {!!siteConfig.podName && <p>Customized by {siteConfig.podName} - Engr. Nnamdi and Other Dev Team.</p>}
       <PlatformFlag />
     </S.Footer>
   );

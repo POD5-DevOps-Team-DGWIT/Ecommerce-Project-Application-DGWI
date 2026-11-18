@@ -49,8 +49,12 @@ export const BrandImg = styled.img.attrs({
   src: '/images/digitalwitch-logo.svg',
   alt: 'DigitalWitch',
 })`
-  width: 180px;
+  width: 150px;
   height: auto;
+
+  @media (min-width: 420px) {
+    width: 180px;
+  }
 
   ${({ theme }) => theme.breakpoints.desktop} {
     width: 240px;

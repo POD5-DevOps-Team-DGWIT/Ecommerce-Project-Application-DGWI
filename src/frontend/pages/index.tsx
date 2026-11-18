@@ -11,6 +11,7 @@ import ApiGateway from '../gateways/Api.gateway';
 import Banner from '../components/Banner';
 import { CypressFields } from '../utils/enums/CypressFields';
 import { useCurrency } from '../providers/Currency.provider';
+import PodTeam from '../components/PodTeam';
 
 const Home: NextPage = () => {
   const { selectedCurrency } = useCurrency();
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
             </S.Content>
           </S.Row>
         </S.Container>
+        <PodTeam />
       </S.Home>
     </Layout>
   );
