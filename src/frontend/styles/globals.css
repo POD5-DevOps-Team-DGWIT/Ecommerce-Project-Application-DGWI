@@ -16,16 +16,41 @@ html, body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: white;
   margin: 0px;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #0B1F3A;
+  -webkit-font-smoothing: antialiased;
 }
 
-body * {
+*, *::before, *::after {
   box-sizing: border-box;
-  color: #29293E;
-  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(31, 111, 209, 0.55);
+  outline-offset: 2px;
 }
 
 #__next {

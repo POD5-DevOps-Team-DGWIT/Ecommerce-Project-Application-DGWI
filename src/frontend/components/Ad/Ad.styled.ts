@@ -6,19 +6,27 @@ import RouterLink from 'next/link';
 
 export const Ad = styled.section`
   position: relative;
-  background-color: ${({ theme }) => theme.colors.otelYellow};
-  font-size: ${({ theme }) => theme.sizes.dMedium};
+  margin-top: 40px;
+  padding: 28px 20px;
   text-align: center;
-  padding: 48px;
+  background-color: ${({ theme }) => theme.colors.goldSoft};
+  border-top: 1px solid ${({ theme }) => theme.colors.otelYellow};
 
-  * {
-    color: ${({ theme }) => theme.colors.white};
+  p {
     margin: 0;
-    cursor: pointer;
+    font-size: ${({ theme }) => theme.sizes.dMedium};
+    font-weight: ${({ theme }) => theme.fonts.semiBold};
+    color: ${({ theme }) => theme.colors.textGray};
   }
 `;
 
 export const Link = styled(RouterLink)`
-  color: black;
+  display: inline-block;
   text-decoration: none;
+
+  &:hover p {
+    color: ${({ theme }) => theme.colors.goldText};
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 `;

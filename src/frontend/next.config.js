@@ -67,7 +67,15 @@ const nextConfig = {
   images: {
     loader: "custom",
     loaderFile: "./utils/imageLoader.js"
-  }
+  },
+    // UI preview mode (see src/frontend/.env.local): send /api/* to the fake
+  // backend in pages/api-mock so the site runs without Kubernetes.
+  async rewrites() {
+    if (process.env.UI_MOCK !== 'true') return [];
+    return {
+      beforeFiles: [{ source: '/api/:path*', destination: '/api-mock/:path*' }],
+    };
+  },
 };
 
 module.exports = nextConfig;

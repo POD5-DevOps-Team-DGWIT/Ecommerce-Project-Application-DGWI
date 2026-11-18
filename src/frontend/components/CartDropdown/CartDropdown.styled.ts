@@ -12,22 +12,24 @@ export const CartDropdown = styled.div`
   width: 100%;
   height: 100%;
   max-height: 100%;
-  padding: 5px;
+  padding: 16px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   background: ${({ theme }) => theme.colors.white};
   z-index: 1000;
-  border-radius: 5px;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
 
   ${({ theme }) => theme.breakpoints.desktop} {
     position: absolute;
     width: 400px;
-    top: 95px;
-    right: 17px;
+    height: auto; /* needed: the dropdown is now positioned inside the sticky header */
     max-height: 600px;
+    top: 80px;
+    right: max(20px, calc((100% - ${({ theme }) => theme.layout.maxWidth}) / 2 + 28px));
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radii.lg};
+    box-shadow: 0 20px 48px rgba(11, 31, 58, 0.18);
   }
 `;
 
@@ -104,6 +106,9 @@ export const Header = styled.div`
   span {
     position: absolute;
     right: 25px;
+    cursor: pointer;
+    font-weight: ${({ theme }) => theme.fonts.semiBold};
+    color: ${({ theme }) => theme.colors.otelBlue};
   }
 
   ${({ theme }) => theme.breakpoints.desktop} {

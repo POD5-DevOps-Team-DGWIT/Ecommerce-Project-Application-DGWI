@@ -4,14 +4,22 @@
 import styled from 'styled-components';
 
 export const Select = styled.select`
-  width: 100%;
-  height: 45px;
-  border: 1px solid ${({ theme }) => theme.colors.borderGray};
-  padding: 10px 16px;
-  border-radius: 8px;
-  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
   width: 100px;
+  height: 48px;
+  padding: 0 40px 0 16px;
+  background: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radii.md};
+  font-size: 16px;
+  font-weight: ${({ theme }) => theme.fonts.semiBold};
   cursor: pointer;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.otelBlue};
+  }
 `;
 
 export const SelectContainer = styled.div`
@@ -21,11 +29,13 @@ export const SelectContainer = styled.div`
 
 export const Arrow = styled.img.attrs({
   src: '/icons/Chevron.svg',
-  alt: 'select',
+  alt: '',
 })`
   position: absolute;
-  right: 25px;
-  top: 20px;
-  width: 10px;
-  height: 5px;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 7px;
+  pointer-events: none;
 `;

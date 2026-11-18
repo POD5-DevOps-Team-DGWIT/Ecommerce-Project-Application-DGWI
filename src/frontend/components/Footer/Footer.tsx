@@ -6,6 +6,7 @@ import * as S from './Footer.styled';
 import SessionGateway from '../../gateways/Session.gateway';
 import { CypressFields } from '../../utils/enums/CypressFields';
 import PlatformFlag from '../PlatformFlag';
+import { siteConfig } from '../Layout/siteConfig';
 
 const currentYear = new Date().getFullYear();
 
@@ -30,6 +31,7 @@ const Footer = () => {
         © {currentYear} DigitalWitch Support Community · Built on the{' '}
         <a href="https://github.com/open-telemetry/opentelemetry-demo">OpenTelemetry Demo</a>
       </p>
+      {!!siteConfig.podName && <p>Built by {siteConfig.podName} - Engr. Nnamdi and Other Dev Team.</p>}
       <PlatformFlag />
     </S.Footer>
   );

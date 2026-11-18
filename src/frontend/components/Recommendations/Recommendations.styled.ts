@@ -5,35 +5,37 @@ import styled from 'styled-components';
 
 export const Recommendations = styled.section`
   display: flex;
-  margin: 40px 0;
+  margin: 56px 0 24px;
   align-items: center;
   flex-direction: column;
 `;
 
 export const ProductList = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
   width: 100%;
   padding: 0 20px;
-  flex-direction: column;
-  gap: 24px;
 
   ${({ theme }) => theme.breakpoints.desktop} {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0;
   }
 `;
 
 export const TitleContainer = styled.div`
-  border-top: 1px dashed;
-  padding: 40px 0;
-  text-align: center;
   width: 100%;
+  padding: 40px 0 28px;
+  text-align: center;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 export const Title = styled.h3`
-  font-size: ${({ theme }) => theme.sizes.mLarge};
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: ${({ theme }) => theme.colors.textGray};
 
   ${({ theme }) => theme.breakpoints.desktop} {
-    font-size: ${({ theme }) => theme.sizes.dLarge};
+    font-size: 32px;
   }
 `;

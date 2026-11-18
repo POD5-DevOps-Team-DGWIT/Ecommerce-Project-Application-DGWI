@@ -5,21 +5,22 @@ import styled from 'styled-components';
 
 export const Block = styled.div`
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100px;
-  height: 27px;
+  right: 20px;
+  bottom: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.sizes.mSmall};
-  font-weight: ${({ theme }) => theme.fonts.regular};
-  color: ${({ theme }) => theme.colors.white};
-  background: ${({ theme }) => theme.colors.otelYellow};
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(200, 144, 46, 0.2);
+  border: 1px solid rgba(200, 144, 46, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 
-  ${({ theme }) => theme.breakpoints.desktop} {
-    width: 190px;
-    height: 50px;
-    font-size: ${({ theme }) => theme.sizes.dSmall};
+  /* && beats the footer's "* { color }" rule */
+  && {
+    color: #f1c777;
+    font-size: 12px;
+    font-weight: ${({ theme }) => theme.fonts.semiBold};
   }
 `;
