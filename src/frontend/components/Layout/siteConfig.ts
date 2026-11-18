@@ -15,6 +15,5 @@ export const siteConfig = {
     members: [
     { name: 'Linus Okolo', role: 'DevOps Engineer - IaC & Dev Team', link: 'https://github.com/LinusNnam' },
     { name: 'Harriet Okuofu', role: 'DevOps Engineer - IaC & Dev Team', link: 'https://github.com/harriodf' },
-    { name: 'Pod 5 member Name', role: 'DevOps Engineer' },
   ],
 };
