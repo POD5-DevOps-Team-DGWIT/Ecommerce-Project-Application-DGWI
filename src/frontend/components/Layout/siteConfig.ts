@@ -14,6 +14,7 @@ export const siteConfig = {
   projectDescription: 'We customized this shop as 24 microservices on AWS EKS.', // 1-2 sentences about what Pod 5 built
     members: [
     { name: 'Linus Okolo', role: 'DevOps Engineer - IaC & Dev Team', link: 'https://github.com/LinusNnam' },
+    { name: 'Harriet Okuofu', role: 'DevOps Engineer - IaC & Dev Team', link: 'https://github.com/harriodf' },
     { name: 'Pod 5 member Name', role: 'DevOps Engineer' },
   ],
 };
