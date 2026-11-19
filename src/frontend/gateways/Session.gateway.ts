@@ -11,7 +11,7 @@ interface ISession {
 const sessionKey = 'session';
 const defaultSession: Readonly<ISession> = Object.freeze({
   userId: v4(),
-  currencyCode: 'USD',
+  currencyCode: 'NGN',
 });
 
 const SessionGateway = () => ({

@@ -86,7 +86,7 @@ namespace
   {
     {"EUR", 1.0},
     {"USD", 1.1305},
-    {"NGN", 1396.9232},
+    {"NGN", 1580.9232},
     {"JPY", 126.40},
     {"BGN", 1.9558},
     {"CZK", 25.592},
@@ -117,7 +117,6 @@ namespace
     {"PHP", 59.083},
     {"SGD", 1.5349},
     {"THB", 36.012},
-    {"ZAR", 16.0583},
   };
 
   const char* version_env = std::getenv("VERSION");
