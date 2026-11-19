@@ -9,6 +9,7 @@ import * as S from '../styles/Home.styled';
 import { useQuery } from '@tanstack/react-query';
 import ApiGateway from '../gateways/Api.gateway';
 import Banner from '../components/Banner';
+import Brand from '../styles/Brand';
 import { CypressFields } from '../utils/enums/CypressFields';
 import { useCurrency } from '../providers/Currency.provider';
 
@@ -22,22 +23,43 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>DigitalWitch - Home</title>
+        <title>{Brand.name} - Home</title>
       </Head>
       <S.Home data-cy={CypressFields.HomePage}>
         <Banner />
+        <S.BenefitsWrap>
+          <S.Benefits>
+            {Brand.benefits.map(benefit => (
+              <S.Benefit key={benefit.title}>
+                <S.BenefitTitle>{benefit.title}</S.BenefitTitle>
+                <S.BenefitText>{benefit.text}</S.BenefitText>
+              </S.Benefit>
+            ))}
+          </S.Benefits>
+        </S.BenefitsWrap>
         <S.Container>
-          <S.Row>
-            <S.Content>
-              <S.HotProducts>
-                <S.HotProductsTitle data-cy={CypressFields.HotProducts} id="hot-products">
-                  Hot Products
-                </S.HotProductsTitle>
-                <ProductList productList={productList} />
-              </S.HotProducts>
-            </S.Content>
-          </S.Row>
+          <S.Section>
+            <S.SectionHeader>
+              <S.SectionEyebrow>{Brand.products.eyebrow}</S.SectionEyebrow>
+              <S.HotProductsTitle data-cy={CypressFields.HotProducts} id="hot-products">
+                {Brand.products.title}
+              </S.HotProductsTitle>
+            </S.SectionHeader>
+            <ProductList productList={productList} />
+          </S.Section>
         </S.Container>
+        <S.Story>
+          <S.StoryInner>
+            <div>
+              <S.SectionEyebrow>{Brand.story.eyebrow}</S.SectionEyebrow>
+              <S.StoryTitle>{Brand.story.title}</S.StoryTitle>
+            </div>
+            <div>
+              <S.StoryText>{Brand.story.text}</S.StoryText>
+              <S.StoryLink href={Brand.story.href}>{Brand.story.cta}</S.StoryLink>
+            </div>
+          </S.StoryInner>
+        </S.Story>
       </S.Home>
     </Layout>
   );

@@ -12,6 +12,7 @@ import Layout from '../../../components/Layout';
 import ProductPrice from '../../../components/ProductPrice';
 import Recommendations from '../../../components/Recommendations';
 import Select from '../../../components/Select';
+import Brand from '../../../styles/Brand';
 import { CypressFields } from '../../../utils/enums/CypressFields';
 import ApiGateway from '../../../gateways/Api.gateway';
 import { Product } from '../../../protos/demo';
@@ -65,10 +66,13 @@ const ProductDetail: NextPage = () => {
       contextKeys={[...new Set(categories)]}
     >
       <Head>
-        <title>DigitalWitch - Product</title>
+        <title>{Brand.name} - Product</title>
       </Head>
       <Layout>
         <S.ProductDetail data-cy={CypressFields.ProductDetail}>
+          <S.Crumbs>
+            <S.BackLink href="/#hot-products">← All products</S.BackLink>
+          </S.Crumbs>
           <S.Container>
             {picture ? (
               <S.Image
@@ -77,29 +81,50 @@ const ProductDetail: NextPage = () => {
               />
             ) : null}
             <S.Details $fullWidth={!picture}>
+              {categories && categories.length > 0 ? (
+                <S.Chips>
+                  {categories.map(category => (
+                    <S.Chip key={category}>{category}</S.Chip>
+                  ))}
+                </S.Chips>
+              ) : null}
               <S.Name data-cy={CypressFields.ProductName}>{name}</S.Name>
-              <S.Description data-cy={CypressFields.ProductDescription}>{description}</S.Description>
               <S.ProductPrice>
                 <ProductPrice price={priceUsd} />
               </S.ProductPrice>
-              <S.Text>Quantity</S.Text>
-              <Select
-                data-cy={CypressFields.ProductQuantity}
-                onChange={event => setQuantity(+event.target.value)}
-                value={quantity}
-              >
-                {quantityOptions.map(option => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
+              <S.Description data-cy={CypressFields.ProductDescription}>{description}</S.Description>
+              <S.Buy>
+                <S.Field>
+                  <S.Text>Quantity</S.Text>
+                  <Select
+                    data-cy={CypressFields.ProductQuantity}
+                    onChange={event => setQuantity(+event.target.value)}
+                    value={quantity}
+                  >
+                    {quantityOptions.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </Select>
+                </S.Field>
+                <S.AddToCart data-cy={CypressFields.ProductAddToCart} onClick={onAddItem}>
+                  <Image src="/icons/Cart.svg" height="15" width="15" alt="cart" /> Add To Cart
+                </S.AddToCart>
+              </S.Buy>
+              <S.Perks>
+                {Brand.benefits.map(benefit => (
+                  <S.Perk key={benefit.title}>
+                    <S.PerkTitle>{benefit.title}</S.PerkTitle>
+                    <S.PerkText>{benefit.text}</S.PerkText>
+                  </S.Perk>
                 ))}
-              </Select>
-              <S.AddToCart data-cy={CypressFields.ProductAddToCart} onClick={onAddItem}>
-                <Image src="/icons/Cart.svg" height="15" width="15" alt="cart" /> Add To Cart
-              </S.AddToCart>
+              </S.Perks>
             </S.Details>
           </S.Container>
-          <Recommendations />
+          <S.Wide>
+            <Recommendations />
+          </S.Wide>
         </S.ProductDetail>
         <Ad />
       </Layout>

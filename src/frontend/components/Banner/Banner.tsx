@@ -1,20 +1,23 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-import Link from 'next/link';
+import Brand from '../../styles/Brand';
 import * as S from './Banner.styled';
 
 const Banner = () => {
   return (
     <S.Banner>
-      <S.ImageContainer>
-        <S.BannerImg />
-      </S.ImageContainer>
-      <S.TextContainer>
-        <S.Title>Welcome to DigitalWitch</S.Title>
-        <S.Subtitle>Professional Cloud Security + DevOps Training</S.Subtitle>
-        <Link href="#hot-products"><S.GoShoppingButton>Explore the Store</S.GoShoppingButton></Link>
-      </S.TextContainer>
+      <S.Content>
+        <S.Eyebrow>{Brand.hero.eyebrow}</S.Eyebrow>
+        <S.Title>{Brand.hero.title}</S.Title>
+        <S.Text>{Brand.hero.text}</S.Text>
+      </S.Content>
+      <S.BarWrap>
+        <S.Bar>
+          <S.ScrollText>{Brand.hero.scroll}</S.ScrollText>
+          <S.PrimaryLink href="#hot-products">{Brand.hero.cta}</S.PrimaryLink>
+        </S.Bar>
+      </S.BarWrap>
     </S.Banner>
   );
 };

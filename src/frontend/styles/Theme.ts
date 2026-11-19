@@ -3,19 +3,18 @@
 
 import { DefaultTheme } from 'styled-components';
 
+// Same keys as before (see style.d.ts), only the values changed.
 const Theme: DefaultTheme = {
   colors: {
-    // DigitalWitch brand (key names kept from the upstream demo)
-    otelBlue: '#1F6FD1', // brand blue: buttons, links
-
+    otelBlue: '#1F6FD1', // brand blue: hover and focus accents
     otelYellow: '#C8902E', // brand gold: accents
-    otelGray: '#0B1F3A', // deep navy
+    otelGray: '#0B1F3A', // deep navy: buttons, footer
     otelRed: '#FB7181',
-    backgroundGray: 'rgba(31, 111, 209, 0.08)',
-    lightBorderGray: 'rgba(31, 111, 209, 0.3)',
-    borderGray: '#0B1F3A',
-    textGray: '#0B1F3A',
-    textLightGray: '#78788C',
+    backgroundGray: '#F6F5F2', // soft warm surface
+    lightBorderGray: '#E3E1DB', // hairlines
+    borderGray: '#C9C6BE', // form borders
+    textGray: '#14161A', // main text
+    textLightGray: '#6B6F76', // secondary text
     white: '#FFFFFF',
   },
   breakpoints: {
@@ -33,10 +32,10 @@ const Theme: DefaultTheme = {
     nano: '8px',
   },
   fonts: {
-    bold: '800',
-    regular: '500',
-    semiBold: '700',
-    light: '400',
+    bold: '700',
+    regular: '400',
+    semiBold: '600',
+    light: '300',
   },
 };
 
