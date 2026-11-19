@@ -4,71 +4,56 @@
 import styled from 'styled-components';
 import Button from '../Button';
 
-export const CheckoutForm = styled.form`
-  padding: 24px 20px;
-  background: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.lg};
-  box-shadow: ${({ theme }) => theme.shadows.card};
-
-  ${({ theme }) => theme.breakpoints.desktop} {
-    padding: 32px;
-  }
-
-  @media (min-width: 1024px) {
-    position: sticky;
-    top: 108px; /* sits below the sticky header */
-  }
-`;
+export const CheckoutForm = styled.form``;
 
 export const StateRow = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: 35% 55%;
+  gap: 10%;
 `;
 
-export const Title = styled.h2`
-  margin: 0 0 20px;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-  color: ${({ theme }) => theme.colors.textGray};
+export const Title = styled.h1`
+  margin: 0;
+  margin-bottom: 24px;
 `;
 
 export const CardRow = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-
-  > :first-child {
-    grid-column: 1 / -1; /* phones: Month on its own row so Year/CVV have room */
-  }
-
-  @media (min-width: 480px) {
-    grid-template-columns: 1.4fr 1fr 1fr;
-
-    > :first-child {
-      grid-column: auto;
-    }
-  }
+  grid-template-columns: 35% 35% 20%;
+  gap: 5%;
 `;
 
 export const SubmitContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   flex-direction: column-reverse;
-  align-items: stretch;
-  gap: 12px;
-  margin-top: 8px;
 
-  a {
-    display: block;
+  ${({ theme }) => theme.breakpoints.desktop} {
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-top: 67px;
   }
 `;
 
 export const CartButton = styled(Button)`
+  padding: 16px 35px;
+  font-weight: ${({ theme }) => theme.fonts.regular};
   width: 100%;
+
+  ${({ theme }) => theme.breakpoints.desktop} {
+    width: inherit;
+  }
 `;
 
 export const EmptyCartButton = styled(Button)`
-  width: 100%;
+  font-weight: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.otelRed};
+  width: 100%;
+
+  ${({ theme }) => theme.breakpoints.desktop} {
+    width: inherit;
+  }
 `;

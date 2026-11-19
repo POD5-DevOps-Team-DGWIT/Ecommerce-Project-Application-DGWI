@@ -7,11 +7,6 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       otelBlue: string;
-      blueDark: string;
-      goldText: string;
-      goldSoft: string;
-      surface: string;
-      border: string;
       otelYellow: string;
       otelGray: string;
       otelRed: string;
@@ -41,19 +36,6 @@ declare module 'styled-components' {
       regular: string;
       semiBold: string;
       light: string;
-    };
-        radii: {
-      sm: string;
-      md: string;
-      lg: string;
-    };
-    shadows: {
-      card: string;
-      cardHover: string;
-      nav: string;
-    };
-    layout: {
-      maxWidth: string;
     };
   }
 }

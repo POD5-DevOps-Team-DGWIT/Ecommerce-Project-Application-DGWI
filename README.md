@@ -1,6 +1,6 @@
-# Astronomy Shop: E-commerce Microservices on AWS EKS
+## Astronomy Shop: E-commerce Microservices on AWS EKS
 
-An online telescope shop made of **24 microservices** in 10+ languages. This repo holds the **application code**. Every push builds Docker images, pushes them to **Amazon ECR**, and updates the **[k8s-file repo](https://github.com/digitalwitchdemo/k8s-file)**, which **Argo CD** deploys to the EKS cluster automatically.
+An online telescope shop made of **24 microservices** in 10+ languages. This repo holds the **application code**. Every push builds Docker images, pushes them to **Amazon ECR**, and updates the **[k8s-file](https://github.com/digitalwitchdemo/k8s-file)** repo, which **Argo CD** deploys to the EKS cluster automatically.
 
 ```
  you push code ──► GitHub Actions ──► Amazon ECR ──► k8s-file repo ──► Argo CD ──► EKS

@@ -5,12 +5,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  max-width: ${({ theme }) => theme.layout.maxWidth};
-  margin: 0 auto;
   padding: 0 20px;
 
   ${({ theme }) => theme.breakpoints.desktop} {
-    padding: 0 48px;
+    padding: 0 100px;
   }
 `;
 
@@ -22,45 +20,25 @@ export const Row = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  margin-top: 40px;
-
   ${({ theme }) => theme.breakpoints.desktop} {
-    margin-top: 72px;
+    margin-top: 100px;
   }
 `;
 
 export const HotProducts = styled.div`
-  margin-bottom: 48px;
+  margin-bottom: 20px;
 
   ${({ theme }) => theme.breakpoints.desktop} {
-    margin-bottom: 96px;
+    margin-bottom: 100px;
   }
 `;
 
-export const HotProductsTitle = styled.h2`
-  position: relative;
-  margin: 0 0 28px;
-  padding-bottom: 14px;
-  font-size: 26px;
-  letter-spacing: -0.01em;
+export const HotProductsTitle = styled.h1`
+  font-size: ${({ theme }) => theme.sizes.mLarge};
   font-weight: ${({ theme }) => theme.fonts.bold};
-  color: ${({ theme }) => theme.colors.textGray};
-  scroll-margin-top: 100px; /* keeps the title visible under the sticky header */
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 56px;
-    height: 4px;
-    border-radius: 4px;
-    background: ${({ theme }) => theme.colors.otelYellow};
-  }
 
   ${({ theme }) => theme.breakpoints.desktop} {
-    margin-bottom: 36px;
-    font-size: 34px;
+    font-size: ${({ theme }) => theme.sizes.dxLarge};
   }
 `;
 

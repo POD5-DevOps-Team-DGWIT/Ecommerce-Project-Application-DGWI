@@ -12,48 +12,54 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  margin-left: 40px;
+  color: #605f64;
+
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  :-ms-input-placeholder,
+  :-moz-placeholder {
+    font-size: 12px;
+    color: #605f64;
+  }
 `;
 
 export const SelectedConcurrency = styled.span`
-  position: absolute;
-  left: 12px;
-  width: 26px;
-  overflow: hidden;
-  white-space: nowrap;
+  font-size: ${({ theme }) => theme.sizes.mLarge};
   text-align: center;
-  pointer-events: none;
-  font-size: 14px;
-  font-weight: ${({ theme }) => theme.fonts.semiBold};
-  color: ${({ theme }) => theme.colors.otelBlue};
+  font-weight: ${({ theme }) => theme.fonts.regular};
+
+  position: relative;
+  left: 35px;
+  width: 20px;
+  display: inline-block;
 `;
 
 export const Arrow = styled.img.attrs({
   src: '/icons/Chevron.svg',
-  alt: '',
+  alt: 'arrow',
 })`
   position: absolute;
-  right: 12px;
-  width: 11px;
-  height: 7px;
-  pointer-events: none;
+  right: 15px;
+  width: 12px;
+  height: 17px;
 `;
 
 export const Select = styled.select`
   -webkit-appearance: none;
-  appearance: none;
+  -webkit-border-radius: 0px;
+  font-size: ${({ theme }) => theme.sizes.mLarge};
   cursor: pointer;
-  flex-shrink: 0;
-  width: 104px;
-  height: 44px;
-  padding: 0 26px 0 38px;
-  background: ${({ theme }) => theme.colors.white};
-  font-size: 15px;
-  font-weight: ${({ theme }) => theme.fonts.semiBold};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.md};
-  transition: border-color 0.15s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.otelBlue};
-  }
+  display: flex;
+  align-items: center;
+  background: transparent;
+  font-weight: ${({ theme }) => theme.fonts.regular};
+  border: 1px solid ${({ theme }) => theme.colors.borderGray};
+  width: 130px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 1px 0 0 45px;
+  font-size: 16px;
+  border-radius: 10px;
 `;

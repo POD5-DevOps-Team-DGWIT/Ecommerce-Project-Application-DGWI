@@ -73,12 +73,10 @@ const ProductCard = ({
       <S.ProductCard data-cy={CypressFields.ProductCard}>
         <S.Image $src={imageSrc} />
         <div>
-        <S.Info>
           <S.ProductName>{name}</S.ProductName>
           <S.ProductPrice>
             <ProductPrice price={priceUsd} />
           </S.ProductPrice>
-        </S.Info>
         </div>
       </S.ProductCard>
     </S.Link>

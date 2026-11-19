@@ -4,12 +4,10 @@
 import styled from 'styled-components';
 
 export const Checkout = styled.div`
-  max-width: ${({ theme }) => theme.layout.maxWidth};
-  margin: 0 auto;
-  padding: 24px 20px 40px;
+  margin: 20px;
 
   ${({ theme }) => theme.breakpoints.desktop} {
-    padding: 56px 48px 64px;
+    margin: 100px;
   }
 `;
 
@@ -17,7 +15,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 28px;
-  margin-bottom: 64px;
+  margin-bottom: 120px;
 
   ${({ theme }) => theme.breakpoints.desktop} {
     display: grid;
@@ -33,11 +31,10 @@ export const Container = styled.div`
 export const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 
   ${({ theme }) => theme.breakpoints.desktop} {
     grid-area: left;
-    justify-content: center;
   }
 `;
 
@@ -51,14 +48,17 @@ export const SectionTitle = styled.h4`
 export const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 24px;
-  background-color: ${({ theme }) => theme.colors.surface};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.lg};
+  gap: 8px;
+  padding: 20px;
+  background-color: ${({ theme }) => theme.colors.backgroundGray};
+  border-radius: 8px;
 
   ${({ theme }) => theme.breakpoints.desktop} {
     grid-area: right;
+  }
+
+  ${SectionTitle} {
+    text-align: right;
   }
 `;
 
@@ -72,34 +72,14 @@ export const ItemsSection = styled.div`
   }
 `;
 
-/* The little blue tick circle before the title is pure CSS - no extra markup needed. */
 export const Title = styled.h1`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
+  text-align: center;
   margin: 0;
-  font-size: 26px;
-  letter-spacing: -0.01em;
-  color: ${({ theme }) => theme.colors.textGray};
-
-  &::before {
-    content: '✓';
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.colors.otelBlue};
-    color: ${({ theme }) => theme.colors.white};
-    font-size: 22px;
-  }
+  font-size: ${({ theme }) => theme.sizes.mLarge};
 
   ${({ theme }) => theme.breakpoints.desktop} {
-    justify-content: flex-start;
-    font-size: 38px;
+    text-align: left;
+    font-size: ${({ theme }) => theme.sizes.dLarge};
   }
 `;
 
@@ -107,7 +87,6 @@ export const Subtitle = styled.h3`
   text-align: center;
   margin: 0;
   font-size: ${({ theme }) => theme.sizes.mMedium};
-  font-weight: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.textLightGray};
 
   ${({ theme }) => theme.breakpoints.desktop} {
@@ -137,10 +116,10 @@ export const InfoValue = styled.span`
 `;
 
 export const AddressText = styled.p`
-  margin: 2px 0;
-  font-size: ${({ theme }) => theme.sizes.dSmall};
+  margin: 4px 0;
+  font-size: ${({ theme }) => theme.sizes.mMedium};
   color: ${({ theme }) => theme.colors.textGray};
-  text-align: left;
+  text-align: right;
 `;
 
 export const ItemList = styled.div`
@@ -155,16 +134,15 @@ export const OrderItem = styled.div`
   align-items: center;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.lg};
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  border: 1px solid ${({ theme }) => theme.colors.lightBorderGray};
+  border-radius: 8px;
 `;
 
 export const ItemImage = styled.img`
   width: 80px;
   height: 80px;
   object-fit: contain;
-  border-radius: ${({ theme }) => theme.radii.sm};
+  border-radius: 5px;
   flex-shrink: 0;
 `;
 
@@ -177,13 +155,8 @@ export const ItemDetails = styled.div`
 
 export const ItemName = styled.h5`
   margin: 0;
-  font-size: ${({ theme }) => theme.sizes.dSmall};
-  font-weight: ${({ theme }) => theme.fonts.semiBold};
-  color: ${({ theme }) => theme.colors.textGray};
-
-  ${({ theme }) => theme.breakpoints.desktop} {
-    font-size: ${({ theme }) => theme.sizes.mLarge};
-  }
+  font-size: ${({ theme }) => theme.sizes.mLarge};
+  font-weight: ${({ theme }) => theme.fonts.regular};
 `;
 
 export const ItemQuantity = styled.p`
@@ -193,15 +166,11 @@ export const ItemQuantity = styled.p`
 `;
 
 export const ItemPrice = styled.div`
-  font-size: ${({ theme }) => theme.sizes.dSmall};
+  font-size: ${({ theme }) => theme.sizes.mLarge};
   font-weight: ${({ theme }) => theme.fonts.bold};
   color: ${({ theme }) => theme.colors.textGray};
   text-align: right;
   white-space: nowrap;
-
-  ${({ theme }) => theme.breakpoints.desktop} {
-    font-size: ${({ theme }) => theme.sizes.mLarge};
-  }
 `;
 
 export const OrderSummary = styled.div`
@@ -209,27 +178,26 @@ export const OrderSummary = styled.div`
   flex-direction: column;
   gap: 12px;
   padding: 24px;
-  background-color: ${({ theme }) => theme.colors.surface};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.lg};
-  margin-top: 8px;
+  background-color: ${({ theme }) => theme.colors.backgroundGray};
+  border-radius: 8px;
+  margin-top: 16px;
 `;
 
 export const SummaryRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: ${({ theme }) => theme.sizes.dSmall};
-  color: ${({ theme }) => theme.colors.textLightGray};
+  font-size: ${({ theme }) => theme.sizes.mMedium};
+  color: ${({ theme }) => theme.colors.textGray};
 `;
 
 export const TotalRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 14px;
-  border-top: 2px solid ${({ theme }) => theme.colors.border};
-  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 2px solid ${({ theme }) => theme.colors.borderGray};
+  margin-top: 8px;
 `;
 
 export const TotalLabel = styled.span`
@@ -241,7 +209,7 @@ export const TotalLabel = styled.span`
 export const TotalAmount = styled.span`
   font-size: ${({ theme }) => theme.sizes.mLarge};
   font-weight: ${({ theme }) => theme.fonts.bold};
-  color: ${({ theme }) => theme.colors.otelBlue};
+  color: ${({ theme }) => theme.colors.textGray};
 `;
 
 export const ButtonContainer = styled.div`

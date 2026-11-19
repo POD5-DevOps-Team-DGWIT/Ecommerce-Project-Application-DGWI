@@ -3,76 +3,52 @@
 
 import styled from 'styled-components';
 
-const field = `
-  display: block;
-  width: 100%;
-  height: 52px;
-  padding: 0 16px;
-  font-size: 16px;
-`;
-
 export const Input = styled.input`
-  ${field}
-  font-weight: ${({ theme }) => theme.fonts.regular};
-  background: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.md};
+  width: -webkit-fill-available;
+  border: none;
+  padding: 16px;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.lightBorderGray};
-  }
+  font-weight: ${({ theme }) => theme.fonts.regular};
+  font-size: ${({ theme }) => theme.sizes.dMedium};
 
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.otelBlue};
-    box-shadow: 0 0 0 3px rgba(31, 111, 209, 0.18);
-  }
+  border-radius: 10px;
+  background: #f9f9f9;
+  border: 1px solid #cacaca;
 `;
 
 export const InputLabel = styled.p`
-  margin: 0 0 8px;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: ${({ theme }) => theme.sizes.dMedium};
   font-weight: ${({ theme }) => theme.fonts.semiBold};
-  color: ${({ theme }) => theme.colors.textGray};
+  margin: 0;
+  margin-bottom: 15px;
 `;
 
 export const Select = styled.select`
-  ${field}
-  padding-right: 40px;
+  width: 100%;
+  border: none;
+
+  padding: 16px;
   font-weight: ${({ theme }) => theme.fonts.regular};
-  background: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.md};
-  outline: none;
-  cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font-size: ${({ theme }) => theme.sizes.dMedium};
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.lightBorderGray};
-  }
-
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.otelBlue};
-    box-shadow: 0 0 0 3px rgba(31, 111, 209, 0.18);
-  }
+  border-radius: 10px;
+  background: #f9f9f9;
+  border: 1px solid #cacaca;
 `;
 
 export const InputRow = styled.div`
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 `;
 
-/* top = label (28px) + half of (52px field - 7px arrow) */
 export const Arrow = styled.img.attrs({
   src: '/icons/Chevron.svg',
-  alt: '',
+  alt: 'arrow',
 })`
   position: absolute;
-  right: 16px;
-  top: 50px;
-  width: 12px;
-  height: 7px;
-  pointer-events: none;
+  right: 20px;
+  width: 10px;
+  height: 5px;
+  top: 64px;
 `;

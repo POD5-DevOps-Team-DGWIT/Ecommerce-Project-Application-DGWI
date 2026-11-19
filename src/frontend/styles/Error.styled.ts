@@ -9,50 +9,32 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   text-align: center;
   gap: 16px;
-  padding: 48px 20px;
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.surface} 0%,
-    ${({ theme }) => theme.colors.backgroundGray} 100%
-  );
+  padding: 120px 20px;
 `;
 
 export const Code = styled.h1`
-  margin: 0;
-  font-size: clamp(72px, 18vw, 140px);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-size: ${({ theme }) => theme.sizes.dxLarge};
   font-weight: ${({ theme }) => theme.fonts.bold};
   color: ${({ theme }) => theme.colors.otelBlue};
+  margin: 0;
 `;
 
 export const Message = styled.p`
-  margin: 0;
-  max-width: 520px;
   font-size: ${({ theme }) => theme.sizes.mLarge};
   color: ${({ theme }) => theme.colors.textGray};
+  margin: 0;
 `;
 
 export const HomeLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 12px;
-  min-height: 52px;
-  padding: 0 28px;
+  margin-top: 8px;
   background-color: ${({ theme }) => theme.colors.otelBlue};
   color: ${({ theme }) => theme.colors.white};
+  display: inline-block;
+  padding: 8px 16px;
   font-weight: ${({ theme }) => theme.fonts.semiBold};
-  font-size: ${({ theme }) => theme.sizes.dSmall};
-  border-radius: ${({ theme }) => theme.radii.md};
+  font-size: ${({ theme }) => theme.sizes.mLarge};
+  border-radius: 10px;
   text-decoration: none;
-  transition: background-color 0.15s ease, transform 0.15s ease;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.blueDark};
-    transform: translateY(-1px);
-  }
 `;
