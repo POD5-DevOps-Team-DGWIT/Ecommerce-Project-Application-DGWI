@@ -79,6 +79,7 @@ RUN mix assets.deploy
 RUN mix compile
 
 COPY ./src/flagd-ui/rel rel
+RUN chmod +x rel/overlays/bin/server
 RUN mix release
 
 # start a new build stage so that the final image will only contain
